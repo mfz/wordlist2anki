@@ -27,7 +27,7 @@ def worddef(word):
     response = requests.get(URL)
     soup = bs4.BeautifulSoup(response.text, "html.parser")
 
-    _ = [x.strip() for x in soup.find('h3', class_ = 'definition').text.split('\r\n') if x.strip() != '']
+    _ = [x.strip() for x in soup.find('div', class_ = 'definition').text.split('\r\n') if x.strip() != '']
 
     pos = _[0]
     definition = _[1]
